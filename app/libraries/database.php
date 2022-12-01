@@ -47,7 +47,7 @@ class Database
     }
 
     // Bind Values
-    public function bind_values($parameter, $value, $type = null)
+    public function bind($parameter, $value, $type = null)
     {
         if (is_null($type)) {
             switch (true) {
@@ -95,5 +95,11 @@ class Database
     public function rowCount()
     {
         return $this->stmt->rowCount();
+    }
+
+    //Get last insert id
+    public function last_insert_id()
+    {
+        return $this->dbh->lastInsertId();
     }
 }
